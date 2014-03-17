@@ -395,12 +395,11 @@ class Client(requests.Session):
         return self._result(self._post_json(u, data=conf, params=params),
                             json=True)
 
-    def containers(self, quiet=False, all=False, trunc=True, latest=False,
+    def containers(self, quiet=False, all=False, latest=False,
                    since=None, before=None, limit=-1):
         params = {
             'limit': 1 if latest else limit,
             'all': 1 if all else 0,
-            'trunc_cmd': 1 if trunc else 0,
             'since': since,
             'before': before
         }
